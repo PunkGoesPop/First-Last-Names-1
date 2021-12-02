@@ -52,7 +52,6 @@ string GetLast(map<int, FirstLast>& mp, int x) {
 class Person {
 public:
 	void ChangeFirstName(int year, const string& first_name) { 
-		// добавить факт изменения имени на first_name в год year
 		if (mp.count(year) == 0) {
 			mp[year].First = first_name;
 			mp[year].Last = "";
@@ -62,7 +61,6 @@ public:
 		
 	}
 	void ChangeLastName(int year, const string& last_name) { 
-		// добавить факт изменения фамилии на last_name в год year
 		if (mp.count(year) == 0) {
 			mp[year].Last = last_name;
 			mp[year].First = "";
@@ -72,7 +70,6 @@ public:
 	}
 
 	string GetFullName(int year) { 
-		// получить имя и фамилию по состоянию на конец года year
 		string str;
 		if (Smallest(mp, year) || mp.size() == 0) {
 			str = "Incognito";
@@ -98,19 +95,19 @@ private:
 int main() {
 
 	Person person;
-
+	//TEST #1
 	int year = 1;
 	person.ChangeFirstName(year, std::to_string(year) + "_first");
 	person.ChangeLastName(year, std::to_string(year) + "_last");
 	std::cout << "year: " << year << '\n';
 	std::cout << person.GetFullName(year) << '\n';
-
+	//TEST #2
 	year = 2;
 	person.ChangeFirstName(year, std::to_string(year) + "_first");
 	person.ChangeLastName(year, std::to_string(year) + "_last");
 	std::cout << "year: " << year << '\n';
 	std::cout << person.GetFullName(year) << '\n';
-
+	//TEST #3
 	year = 3;
 	person.ChangeFirstName(year, std::to_string(2) + "_first");
 	person.ChangeLastName(year, std::to_string(2) + "_last");
